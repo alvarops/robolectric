@@ -142,14 +142,24 @@
       <version>18_r3</version>
       <scope>provided</scope>
     </dependency>
+      <dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>appcompat-v7</artifactId>
+          <version>21.0.0-rc1</version>
+          <type>aar</type>
+      </dependency>
 
-    <dependency>
+      <dependency>
+          <groupId>com.android.support</groupId>
+          <artifactId>palette-v7</artifactId>
+          <version>21.0.0</version>
+      </dependency>
+
+      <dependency>
       <groupId>com.android.support</groupId>
       <artifactId>support-v4</artifactId>
-      <version>19.0.1</version>
-      <scope>compile</scope>
-      <optional>true</optional>
-    </dependency>
+      <version>21.0.0</version>
+  </dependency>
 
     <dependency>
       <groupId>org.assertj</groupId>

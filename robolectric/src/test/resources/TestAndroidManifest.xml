@@ -15,5 +15,8 @@
 
     <activity android:name="org.robolectric.shadows.ThemeTest$TestActivityWithAThirdTheme"
           android:theme="@style/Theme.ThirdTheme"/>
+
+      <activity android:name="org.robolectric.shadows.ThemeTest$TestWithMaterialActivity"
+          android:theme="@style/AppThemeBase"/>
   </application>
 </manifest>

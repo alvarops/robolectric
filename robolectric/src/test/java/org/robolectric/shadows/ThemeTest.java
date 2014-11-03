@@ -166,4 +166,18 @@ public class ThemeTest {
       setContentView(R.layout.styles_button_with_style_layout);
     }
   }
+
+    @Test public void shouldApplyMaterialAppcompatThemes() throws Exception {
+        TestWithMaterialActivity activity = buildActivity(TestWithMaterialActivity.class).create().get();
+        View button = activity.findViewById(R.id.button);
+        assertThat(button.getLayoutParams().width).isEqualTo(42); // comes via style attr
+    }
+
+    public static class TestWithMaterialActivity extends Activity {
+        @Override protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+//            setTheme(R.style.AppThemeBase);
+            setContentView(R.layout.styles_button_with_style_layout);
+        }
+    }
 }

@@ -22,6 +22,12 @@
 
   <style name="Theme.MyTheme" parent=""/>
 
+    <!-- extend one of the Theme.AppCompat themes -->
+    <style name="AppThemeBase" parent="@android:Theme.AppCompat.Light">
+       <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
   <style name="Widget.Robolectric.Button" parent="@android:style/Widget.Button">
     <item name="android:background">#ff00ff00</item>
   </style>
@@ -60,5 +66,7 @@
   <style name="IndirectButtonStyle" parent="@android:attr/buttonStyle">
     <item name="android:minHeight">12dp</item>
   </style>
+
+
 
 </resources>

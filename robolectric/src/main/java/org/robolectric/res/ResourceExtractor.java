@@ -33,9 +33,11 @@ public class ResourceExtractor extends ResourceIndex {
     try {
       androidRClass = classLoader.loadClass("android.R");
       Class<?> androidInternalRClass = classLoader.loadClass("com.android.internal.R");
+      Class<?> supportRClass = classLoader.loadClass("android.support.v7.appcompat.R");
 
       gatherResourceIdsAndNames(androidRClass, "android", true);
       gatherResourceIdsAndNames(androidInternalRClass, "android", false);
+      gatherResourceIdsAndNames(supportRClass, "android", true);
     } catch (ClassNotFoundException e) {
       throw new RuntimeException(e);
     }

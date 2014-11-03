@@ -77,5 +77,21 @@ public class ResourceLoaderTest {
     assertThat(Robolectric.application.getResources().getString(resId)).isEqualTo("The old PIN you typed isn't correct.");
   }
 
+    @Test
+    public void shouldMakeCompatLibResourcesAvailable() throws Exception {
+        ResourceLoader resourceLoader = Robolectric.getShadowApplication().getResourceLoader();
+        ResName internalResource = new ResName("@android:style/Theme_AppCompat_Light");
+        Integer resId = resourceLoader.getResourceIndex().getResourceId(internalResource);
+        assertThat(resId).isNotNull();
+        assertThat(resourceLoader.getResourceIndex().getResName(resId)).isEqualTo(internalResource);
+
+        Class<?> internalRIdClass = Robolectric.class.getClassLoader().loadClass("android.support.v7.appcompat.R$" + internalResource.type);
+        int internalResourceId;
+        internalResourceId = (Integer) internalRIdClass.getDeclaredField(internalResource.name).get(null);
+        assertThat(resId).isEqualTo(internalResourceId);
+
+//        assertThat(Robolectric.application.getResources().getString(resId)).isEqualTo("The old PIN you typed isn't correct.");
+    }
+
   private static class TestPreferenceActivity extends PreferenceActivity { }
 }
